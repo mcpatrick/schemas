@@ -26,3 +26,6 @@ dependencies {
     compile group: 'org.apache.avro', name: 'avro-ipc', version:'1.7.6'
 }
 
+avro {
+   stringType = "string"
+}
