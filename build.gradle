@@ -1,0 +1,28 @@
+plugins {
+  id "com.commercehub.gradle.plugin.avro" version "0.4.0"
+}
+apply plugin: 'java'
+apply plugin: 'maven'
+
+group = 'org.ga4gh'
+version = '0.6.0-SNAPSHOT'
+
+description = """GA4GH: Schemas"""
+
+sourceCompatibility = 1.5
+targetCompatibility = 1.5
+
+configurations.all {
+}
+
+repositories {
+       jcenter()
+//     maven { url "http://repo.jenkins-ci.org/public/" }
+//     maven { url "http://repo.maven.apache.org/maven2" }
+}
+
+dependencies {
+    compile group: 'org.apache.avro', name: 'avro', version:'1.7.6'
+    compile group: 'org.apache.avro', name: 'avro-ipc', version:'1.7.6'
+}
+
