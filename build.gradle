@@ -29,3 +29,9 @@ dependencies {
 avro {
    stringType = "string"
 }
+
+task sourcesJar(type: Jar, dependsOn: classes) {
+    classifier = 'sources'
+    // MCP - There should be a property I can use for this:
+    from file("build/generated-main-avro-java/org/ga4gh")
+}
