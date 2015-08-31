@@ -17,8 +17,6 @@ configurations.all {
 
 repositories {
        jcenter()
-//     maven { url "http://repo.jenkins-ci.org/public/" }
-//     maven { url "http://repo.maven.apache.org/maven2" }
 }
 
 dependencies {
@@ -30,8 +28,24 @@ avro {
    stringType = "string"
 }
 
+task avroJavadoc(type: Javadoc, dependsOn: classes) {
+
+//   println "Javadoc classpath before: ${classpath.getFiles()}"
+//   println "Main classpath: ${project.sourceSets.main.compileClasspath.getAsPath()}"
+
+   source = file("build/generated-main-avro-java/org/ga4gh")
+   // The doc says the classpath should already be the following by default. Why isn't it?
+   classpath = project.sourceSets.main.compileClasspath
+}
+
 task sourcesJar(type: Jar, dependsOn: classes) {
     classifier = 'sources'
     // MCP - There should be a property I can use for this:
     from file("build/generated-main-avro-java/org/ga4gh")
+}
+
+task javadocJar(type: Jar, dependsOn: avroJavadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+//    from file("build/docs/javadoc/")
 }

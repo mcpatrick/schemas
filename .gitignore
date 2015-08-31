@@ -60,9 +60,9 @@ tramp
 Session.vim
 
 
-#********** maven template**********
+#********** Gradle target directory **********
 
-target/
+build/
 
 #********** Travis CI **********
 
