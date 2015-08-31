@@ -65,7 +65,7 @@ record Reference {
   */
   union { null, float } sourceDivergence = null;
 
-  /** ID from http://www.ncbi.nlm.nih.gov/taxonomy (e.g. 9606-human). */
+  /** ID from http://www.ncbi.nlm.nih.gov/taxonomy (e.g. 9606-&gt;human). */
   union { null, int } ncbiTaxonId = null;
 
 }
@@ -91,7 +91,7 @@ record ReferenceSet {
   string md5checksum;
 
   /**
-  ID from http://www.ncbi.nlm.nih.gov/taxonomy (e.g. 9606-human) indicating
+  ID from http://www.ncbi.nlm.nih.gov/taxonomy (e.g. 9606-&gt;human) indicating
   the species which this assembly is intended to model. Note that contained
   `Reference`s may specify a different `ncbiTaxonId`, as assemblies may
   contain reference sequences which do not belong to the modeled species, e.g.
